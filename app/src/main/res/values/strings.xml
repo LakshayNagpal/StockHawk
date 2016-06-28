@@ -10,4 +10,7 @@
   <string name="input_hint">FB</string>
   <string name="input_prefill"></string>
   <string name="network_toast">Uh-oh! This app requires an internet connection</string>
+  <string name="network_error">Please turn on your Internet Connection!</string>
+  <string name="no_connection_dialog_title">No connection! Duh!</string>
+  <string name="no_connection_dialog_content">The stocks maybe outdated due to bad/no internet connectivity.</string>
 </resources>

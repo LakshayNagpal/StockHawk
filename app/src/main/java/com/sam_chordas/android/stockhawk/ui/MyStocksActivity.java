@@ -52,6 +52,7 @@ public class MyStocksActivity extends AppCompatActivity implements LoaderManager
   private Context mContext;
   private Cursor mCursor;
   boolean isConnected;
+    View emptyview;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +65,7 @@ public class MyStocksActivity extends AppCompatActivity implements LoaderManager
     isConnected = activeNetwork != null &&
         activeNetwork.isConnectedOrConnecting();
     setContentView(R.layout.activity_my_stocks);
+
     // The intent service is for executing immediate pulls from the Yahoo API
     // GCMTaskService can only schedule tasks, they cannot execute immediately
     mServiceIntent = new Intent(this, StockIntentService.class);
@@ -76,11 +78,26 @@ public class MyStocksActivity extends AppCompatActivity implements LoaderManager
         networkToast();
       }
     }
-    RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+    if(!isConnected){
+      new MaterialDialog.Builder(mContext).title(R.string.no_connection_dialog_title)
+              .content(R.string.no_connection_dialog_content).show();
+    }
+
+      emptyview = findViewById(R.id.network_error_text);
+      RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
     recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+
     getLoaderManager().initLoader(CURSOR_LOADER_ID, null, this);
 
     mCursorAdapter = new QuoteCursorAdapter(this, null);
+
+      if(emptyview!=null && mCursorAdapter!=null){
+          final boolean emptyviewvisible = mCursorAdapter.getItemCount() == 0;
+          emptyview.setVisibility(emptyviewvisible?View.VISIBLE:View.GONE);
+
+      }
+
     recyclerView.addOnItemTouchListener(new RecyclerViewItemClickListener(this,
             new RecyclerViewItemClickListener.OnItemClickListener() {
               @Override public void onItemClick(View v, int position) {
@@ -216,6 +233,12 @@ public class MyStocksActivity extends AppCompatActivity implements LoaderManager
   public void onLoadFinished(Loader<Cursor> loader, Cursor data){
     mCursorAdapter.swapCursor(data);
     mCursor = data;
+      if(data.getCount() == 0){
+          emptyview.setVisibility(View.VISIBLE);
+      }
+      else{
+          emptyview.setVisibility(View.GONE);
+      }
   }
 
   @Override
