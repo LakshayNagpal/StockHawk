@@ -19,6 +19,7 @@ import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.sam_chordas.android.stockhawk.R;
@@ -49,7 +50,7 @@ public class MyStocksActivity extends AppCompatActivity implements LoaderManager
   private ItemTouchHelper mItemTouchHelper;
   private static final int CURSOR_LOADER_ID = 0;
   private QuoteCursorAdapter mCursorAdapter;
-  private Context mContext;
+  public static Context mContext;
   private Cursor mCursor;
   boolean isConnected;
     View emptyview;
@@ -91,18 +92,21 @@ public class MyStocksActivity extends AppCompatActivity implements LoaderManager
     getLoaderManager().initLoader(CURSOR_LOADER_ID, null, this);
 
     mCursorAdapter = new QuoteCursorAdapter(this, null);
-
-      if(emptyview!=null && mCursorAdapter!=null){
-          final boolean emptyviewvisible = mCursorAdapter.getItemCount() == 0;
-          emptyview.setVisibility(emptyviewvisible?View.VISIBLE:View.GONE);
-
-      }
+//
+//      if(emptyview!=null && mCursorAdapter!=null){
+//          final boolean emptyviewvisible = mCursorAdapter.getItemCount() == 0;
+//          emptyview.setVisibility(emptyviewvisible?View.VISIBLE:View.GONE);
+//
+//      }
 
     recyclerView.addOnItemTouchListener(new RecyclerViewItemClickListener(this,
             new RecyclerViewItemClickListener.OnItemClickListener() {
               @Override public void onItemClick(View v, int position) {
                 //TODO:
                 // do something on item click
+                Intent graph = new Intent(mContext, GraphActivity.class);
+                graph.putExtra("selected_symbol",((TextView)(v.findViewById(R.id.stock_symbol))).getText());
+                mContext.startActivity(graph);
               }
             }));
     recyclerView.setAdapter(mCursorAdapter);
