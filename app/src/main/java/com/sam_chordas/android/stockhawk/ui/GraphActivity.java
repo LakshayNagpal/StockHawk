@@ -1,9 +1,9 @@
 package com.sam_chordas.android.stockhawk.ui;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
@@ -14,8 +14,9 @@ import com.db.chart.view.LineChartView;
 import com.sam_chordas.android.stockhawk.R;
 import com.sam_chordas.android.stockhawk.data.QuoteColumns;
 import com.sam_chordas.android.stockhawk.data.QuoteProvider;
+import com.sam_chordas.android.stockhawk.service.FetchStockTask;
 
-public class GraphActivity extends Activity {
+public class GraphActivity extends AppCompatActivity {
 
     private static String LOG_TAG = GraphActivity.class.getSimpleName();
     public static final String ss = "selected_symbol";
@@ -56,6 +57,8 @@ public class GraphActivity extends Activity {
 
         if (data == null || count < 2) {
             ((TextView) findViewById(R.id.noDataTextView)).setVisibility(View.VISIBLE);
+            FetchStockTask stock = new FetchStockTask(getBaseContext());
+            stock.execute(selectedsymbol);
         } else {
             ((TextView) findViewById(R.id.noDataTextView)).setVisibility(View.GONE);
 
