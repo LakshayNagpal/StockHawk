@@ -105,15 +105,20 @@ public class MyStocksActivity extends AppCompatActivity implements LoaderManager
               @Override public void onItemClick(View v, int position) {
                 //TODO:
                 // do something on item click
-                TextView t1 = (TextView) findViewById(R.id.stock_symbol);
-                TextView t2 = (TextView) findViewById(R.id.bid_price);
-                TextView t3 = (TextView) findViewById(R.id.change);
-                String s = Integer.toString(position) + getString(R.string.rv1) + t1.getText() + getString(R.string.rv2) + t2.getText()
-                        + getString(R.string.rv3) + t3.getText();
-                recyclerView.setContentDescription(s);
-                Intent graph = new Intent(mContext, GraphActivity.class);
-                graph.putExtra("selected_symbol",((TextView)(v.findViewById(R.id.stock_symbol))).getText());
-                mContext.startActivity(graph);
+                if(isConnected) {
+                  TextView t1 = (TextView) findViewById(R.id.stock_symbol);
+                  TextView t2 = (TextView) findViewById(R.id.bid_price);
+                  TextView t3 = (TextView) findViewById(R.id.change);
+                  String s = Integer.toString(position) + getString(R.string.rv1) + t1.getText() + getString(R.string.rv2) + t2.getText()
+                          + getString(R.string.rv3) + t3.getText();
+                  recyclerView.setContentDescription(s);
+                  Intent graph = new Intent(mContext, GraphActivity.class);
+                  graph.putExtra("selected_symbol", ((TextView) (v.findViewById(R.id.stock_symbol))).getText());
+                  mContext.startActivity(graph);
+                }
+                else{
+                  Toast.makeText(mContext,R.string.restartActivity,Toast.LENGTH_SHORT).show();
+                }
               }
             }));
     recyclerView.setAdapter(mCursorAdapter);
