@@ -54,6 +54,7 @@ public class MyStocksActivity extends AppCompatActivity implements LoaderManager
   private Cursor mCursor;
   boolean isConnected;
     View emptyview;
+  public static final String ACTION_DATA_UPDATE = "com.sam_chordas.android.stockhawk.ACTION_DATA_UPDATE";
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {

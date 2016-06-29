@@ -3,6 +3,7 @@ package com.sam_chordas.android.stockhawk.service;
 import android.app.Activity;
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.Intent;
 import android.content.OperationApplicationException;
 import android.database.Cursor;
 import android.database.DatabaseUtils;
@@ -147,6 +148,9 @@ public class StockTaskService extends GcmTaskService{
         e.printStackTrace();
       }
     }
+
+    Intent dataUpdatedIntent = new Intent(MyStocksActivity.ACTION_DATA_UPDATE).setPackage(mContext.getPackageName());
+    mContext.sendBroadcast(dataUpdatedIntent);
 
     return result;
   }

@@ -45,6 +45,32 @@
         <activity
             android:name=".ui.GraphActivity"
             android:theme="@style/AppTheme"></activity>
+
+        <!--single stock widget-->
+        <receiver android:name=".widget.StockWidgetProvider"
+            android:label="@string/title_widget_list">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="com.sam_chordas.android.stockhawk.ACTION_DATA_UPDATE" />
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider"
+                android:resource="@layout/widget" />
+        </receiver>
+        <service android:name=".widget.StockWidgetIntentService" />
+
+        <!--list (collection) widget-->
+        <receiver
+            android:name=".widget.StockListWidgetProvider"
+            android:label="@string/title_widget_list" >
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="com.sam_chordas.android.stockhawk.ACTION_DATA_UPDATE" />
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider"
+                android:resource="@layout/widget_list" />
+        </receiver>
+        <service android:name=".widget.StockListWidgetRemoteViewsService"
+            android:permission="android.permission.BIND_REMOTEVIEWS" />
     </application>
 
 </manifest>
