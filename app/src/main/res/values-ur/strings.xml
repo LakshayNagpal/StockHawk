@@ -23,4 +23,5 @@
     <string name="stock_symbol">اسٹاک علامت</string>
     <string name="bid_price">بولی کی قیمت</string>
     <string name="change">بولی کی قیمت میں تبدیلی</string>
+    <string name="saved_stock">ایک اسٹاک کے لئے تلاش کریں</string>
 </resources>

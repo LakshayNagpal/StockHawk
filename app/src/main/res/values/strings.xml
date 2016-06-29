@@ -23,4 +23,5 @@
   <string name="bid_price">Bid Price</string>
   <string name="change">Change in Bid price</string>
   <string name="restartActivity">Please turn on your Internet Connection and restart the app.</string>
+  <string name="saved_stock">This stock is already in the list</string>
 </resources>
