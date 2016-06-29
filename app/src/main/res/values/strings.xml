@@ -1,13 +1,11 @@
 <resources>
   <string name="app_name">Stock Hawk</string>
-
-  <string name="action_example">Example action</string>
-
   <string name="action_settings">Settings</string>
+  <string name="action_example">Example action</string>
   <string name="action_change_units">Change Units</string>
   <string name="symbol_search">Symbol Search</string>
   <string name="content_test">Search for a Stock Symbol</string>
-  <string name="input_hint">FB</string>
+  <string name="input_hint" translatable="false">FB</string>
   <string name="input_prefill"></string>
   <string name="network_toast">Uh-oh! This app requires an internet connection</string>
   <string name="network_error">Please turn on your Internet Connection!</string>
@@ -17,4 +15,11 @@
   <string name="no_graph_data_available_string">No Graph Data Available.\n Take a look at this Stock Graph, after some time.</string>
   <string name="empty_list">Empty List</string>
   <string name="title_widget_list">Stock Hawk</string>
+  <string name="fab_select">Button for adding new stock to the list</string>
+  <string name="rv1">Option is selected whose stock symbol is</string>
+  <string name="rv2">with bid price</string>
+  <string name="rv3">and the change in stock value is</string>
+  <string name="stock_symbol">Stock Symbol</string>
+  <string name="bid_price">Bid Price</string>
+  <string name="change">Change in Bid price</string>
 </resources>

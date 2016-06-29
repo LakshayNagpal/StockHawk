@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">اسٹاک ہاک</string>
+    <string name="action_settings">ترتیبات</string>
+    <string name="action_example">مثال کارروائی</string>
+    <string name="action_change_units">اکائیوں بدلیں</string>
+    <string name="symbol_search">نشان تلاش کریں</string>
+    <string name="content_test">ایک اسٹاک کے لئے تلاش کریں </string>
+    <string name="input_hint" translatable="false">FB</string>
+    <string name="input_prefill"></string>
+    <string name="network_toast">افوہ ! یہ ایپ کو ایک انٹرنیٹ کنکشن کی ضرورت ہے</string>
+    <string name="network_error">آپ کے انٹرنیٹ کنکشن کو چالو کریں</string>
+    <string name="no_connection_dialog_title">کوئی رابطہ نہیں! ڈوہ !</string>
+    <string name="no_connection_dialog_content">اسٹاک شاید برا / کوئی انٹرنیٹ کے رابطے کی وجہ سے پرانی .</string>
+    <string name="non_valid_symbol">ایک درست علامت درج کریں</string>
+    <string name="no_graph_data_available_string">کوئی گراف اعداد و شمار دستیاب ہے. \ n ، اس اسٹاک گراف پر ایک نظر ڈالیں کچھ وقت کے بعد .</string>
+    <string name="empty_list">خالی فہرست</string>
+    <string name="title_widget_list">اسٹاک ہاک</string>
+    <string name="fab_select">فہرست سے نیا اسٹاک شامل کرنے کے لئے بٹن</string>
+    <string name="rv1">آپشن منتخب کیا جاتا ہے جن کے اسٹاک علامت ہے</string>
+    <string name="rv2">بولی کی قیمت کے ساتھ</string>
+    <string name="rv3">اور اسٹاک کی قیمت میں تبدیلی ہے</string>
+    <string name="stock_symbol">اسٹاک علامت</string>
+    <string name="bid_price">بولی کی قیمت</string>
+    <string name="change">بولی کی قیمت میں تبدیلی</string>
+</resources>
