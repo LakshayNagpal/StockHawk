@@ -49,13 +49,16 @@ public class GraphActivity extends Activity {
     protected void onStart() {
         super.onStart();
 
+        Log.v(LOG_TAG, "on start called");
 
         int count = data.getCount();
+        Log.v(LOG_TAG, "value of count" + String.valueOf(count));
+
         if (data == null || count < 2) {
             ((TextView) findViewById(R.id.noDataTextView)).setVisibility(View.VISIBLE);
         } else {
             ((TextView) findViewById(R.id.noDataTextView)).setVisibility(View.GONE);
-            
+
             if (!data.moveToFirst()) {
                 data.close();
                 return;
@@ -84,11 +87,16 @@ public class GraphActivity extends Activity {
                 ++i;
                 --count;
             }
-            lineChartView.setAxisBorderValues(Math.round(min), Math.round(max));
+            Log.v(LOG_TAG, "value of min" + String.valueOf(min));
+            Log.v(LOG_TAG, "value of max" + String.valueOf(max));
+
+            lineChartView.setAxisBorderValues((int)Math.floor(min), (int)Math.ceil(max));
             LineSet dataset = new LineSet(labels, price);
-            dataset.setDotsColor(getResources().getColor(R.color.leaf));
-            dataset.setColor(getResources().getColor(R.color.material_blue_700));
-            lineChartView.setAxisColor(getResources().getColor(R.color.black));
+            dataset.setDotsColor(getResources().getColor(R.color.yellow_500));
+            dataset.setColor(getResources().getColor(R.color.light_blue_400));
+            lineChartView.setAxisColor(getResources().getColor(R.color.white));
+            lineChartView.setLabelsColor(getResources().getColor(R.color.yellow_500));
+            lineChartView.setAxisThickness(3);
             lineChartView.addData(dataset);
             //lineChartView.setYAxis(false);
             lineChartView.setXLabels(AxisController.LabelPosition.OUTSIDE);

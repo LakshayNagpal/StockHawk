@@ -5,5 +5,8 @@
   <color name="material_red_700">#D50000</color>
   <color name="material_green_700">#00C853</color>
   <color name="leaf">#464646</color>
-  <color name="black">#000000</color>
+  <color name="white">#FFFFFF</color>
+  <color name="light_blue_400">#29B6F6</color>
+  <color name="purple_500">#9C27B0</color>
+  <color name="yellow_500">#FFEB3B</color>
 </resources>
